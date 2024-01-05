@@ -1,13 +1,13 @@
 class QuestionsController < ApplicationController
   # 質問一覧
   def index
+    @questions = Question.all
 
   end
   # 質問詳細
   def show
-    # p params[:id]
     @question = Question.find(params[:id])
-    # p @question
+
   end
   # 質問作成
   def new
