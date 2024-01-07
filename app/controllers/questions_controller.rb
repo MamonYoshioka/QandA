@@ -18,8 +18,8 @@ class QuestionsController < ApplicationController
     # モデルの初期化
       @question = Question.new(question_params)
     # DBへ保存
-      if @question.save
-    # 詳細ページへ移動
+    if @question.save
+      # 詳細ページへ移動
       redirect_to @question
     else
       render "new", status: :unprocessable_entity
