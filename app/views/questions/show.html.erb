@@ -15,4 +15,35 @@
   <%= @question.body %>
 </p>
 
+<h2>回答一覧</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    名前：<br>
+    <%= answer.name %>
+  </p>
+  <p>
+    回答本文：<br>
+    <%= answer.ans_body %><br>
+    <%= link_to "destroy answer", [answer.question, answer], method: :delete, data: {confirm: "Are you sure?" } %>
+  </p>
+<% end %>
+
+
+
+<h2>回答</h2>
+<%= form_with model:[@question, @question.answers.build] do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :ans_body %><br>
+    <%= f.text_area :ans_body %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
 <%= link_to "top", questions_path %>
