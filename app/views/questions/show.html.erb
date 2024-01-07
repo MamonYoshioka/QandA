@@ -23,7 +23,8 @@
   </p>
   <p>
     回答本文：<br>
-    <%= answer.ans_body %>
+    <%= answer.ans_body %><br>
+    <%= link_to "destroy answer", [answer.question, answer], method: :delete, data: {confirm: "Are you sure?" } %>
   </p>
 <% end %>
 
