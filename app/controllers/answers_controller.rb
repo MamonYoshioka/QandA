@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
   # 回答の投稿
   def create
-    # p params
     @question = Question.find(params[:question_id])
     @question.answers.create(answer_params)
     redirect_to question_path(@question)
