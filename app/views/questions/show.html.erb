@@ -15,6 +15,20 @@
   <%= @question.body %>
 </p>
 
+<h2>回答一覧</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    名前：<br>
+    <%= answer.name %>
+  </p>
+  <p>
+    回答本文：<br>
+    <%= answer.ans_body %>
+  </p>
+<% end %>
+
+
+
 <h2>回答</h2>
 <%= form_with model:[@question, @question.answers.build] do |f| %>
   <div>
